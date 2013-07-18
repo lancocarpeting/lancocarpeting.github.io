@@ -1,23 +1,13 @@
-$(function () {
-  $("#emailButton").click(function (e) {
-    e.preventDefault();
+// analytics
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-33464505-1']);
+_gaq.push(['_trackPageview']);
 
-    var firstName = $("#firstName").val();
-    var lastName = $("#lastName").val();
-    var subject = $("#subject").val();
-    var msg = $("#message").val();
-
-    if (!firstName || firstName.length === 0) return;
-    if (!lastName || lastName.length === 0) return;
-    if (!subject || subject.length === 0) return;
-    if (!msg || msg.length === 0) return;
-
-    subject = subject + " (" + firstName + " " + lastName + ")";
-    var mailtoUrl = "mailto:LancoCarpetCleaning1@hotmail.com﻿?subject=" +
-      subject + "&body=" + msg;
-    window.location.href = mailtoUrl;
-  });
-});
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
 
 goog_snippet_vars = function () {
   var w = window;
@@ -41,3 +31,25 @@ goog_report_conversion = function (url) {
     conv_handler(opt);
   }
 }
+
+// Email link
+$(function () {
+  $("#emailButton").click(function (e) {
+    e.preventDefault();
+
+    var firstName = $("#firstName").val();
+    var lastName = $("#lastName").val();
+    var subject = $("#subject").val();
+    var msg = $("#message").val();
+
+    if (!firstName || firstName.length === 0) return;
+    if (!lastName || lastName.length === 0) return;
+    if (!subject || subject.length === 0) return;
+    if (!msg || msg.length === 0) return;
+
+    subject = subject + " (" + firstName + " " + lastName + ")";
+    var mailtoUrl = "mailto:LancoCarpetCleaning1@hotmail.com﻿?subject=" +
+      subject + "&body=" + msg;
+    window.location.href = mailtoUrl;
+  });
+});
